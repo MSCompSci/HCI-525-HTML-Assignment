@@ -7,9 +7,29 @@
         <meta name="description" content="Learn all about sumo robots">
         <meta name="author" content="Molly Scott">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="../../../styles.css">
         <link rel="icon" type="image/x-icon" href="images/favicon.ico">
         <script src="https://kit.fontawesome.com/b29d57ed18.js" crossorigin="anonymous"></script>
+        <style>
+            .bubble-text{
+                padding: 80px 30px; 
+                padding-bottom: 0; 
+                font-size: 1.5em; 
+                line-height: 200%;
+            }
+            .learn-more{
+                font-size: 1.6em; 
+                background-color: white; 
+                padding:10px; 
+                border-radius: 30px; 
+                border: var(--light-border);
+            }
+            @media screen and (max-width:800px) {
+                .bubble-text{
+                    padding: 5px 20px; 
+                }
+            }
+        </style>
     </head>
     <body>
         <header class="top-navigation">
@@ -58,8 +78,10 @@
                         <figcaption aria-label="image attribution" class="hero-cite"><cite><a href="https://commons.wikimedia.org/wiki/File:The_Baltic_States_Centenary-_Creativity_and_Innovation_Inspired_by_Nature_5.jpg">Violaine Martin</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons</cite></figcaption>
                     </figure>
                     <div class="bubble">
-                        <p style="padding: 80px 30px; padding-bottom: 0; font-size: 1.5em; line-height: 200%;">They come in a wide range of sizes, ranging from lightweight plastic robots to 20lb steel behemoths. They are the main event at competitions all around the world, and they have inspired enthusiasts of all ages to learn more about robotics and engineering. </p>
-                        <a href="history/history.html" title="Learn more" style="font-size: 1.6em; background-color: white; padding:10px; border-radius: 30px; border: var(--light-border);">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                        <p class="bubble-text">They come in a wide range of sizes, ranging from lightweight plastic robots to 20lb steel behemoths. They are the main event at competitions all around the world, and they have inspired enthusiasts of all ages to learn more about robotics and engineering. </p>
+                        <a class="learn-more" href="history/history.html" title="Learn more">Learn More 
+                            <i class="fa-solid fa-arrow-right"></i> 
+                        </a>
                     </div>
                 </div>
             </section>

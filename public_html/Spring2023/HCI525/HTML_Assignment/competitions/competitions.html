@@ -1,100 +1,160 @@
 <!DOCTYPE html>
 <html lang="en-US">
-    <head>
-        <title>Competitions: All About Sumo Robots</title>
-        <meta charset="UTF-8">
-        <meta name="keywords" content="Sumo robots, robotics, robotics competitions">
-        <meta name="description" content="Learn all about sumo robots">
-        <meta name="author" content="Molly Scott">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../../../../styles.css">
-        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-        <script src="https://kit.fontawesome.com/b29d57ed18.js" crossorigin="anonymous"></script>
-        <style>
-            .website{
-                font-size: 1.6em; 
-                background-color: white; 
-                padding:10px; 
-                border-radius: 30px; 
-                border: var(--light-border);
+
+<head>
+    <title>Competitions: All About Sumo Robots</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="Sumo robots, robotics, robotics competitions">
+    <meta name="description" content="Learn all about sumo robots">
+    <meta name="author" content="Molly Scott">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../styles.css">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <script src="https://kit.fontawesome.com/b29d57ed18.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="">
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    <style>
+        .website {
+            font-size: 1.6em;
+            background-color: white;
+            padding: 10px;
+            border-radius: 30px;
+            border: var(--light-border);
+        }
+
+        iframe {
+            width: 753px;
+            height: 425px;
+            margin: 0 40px;
+        }
+
+        section {
+            margin-bottom: 200px;
+        }
+
+        @media screen and (max-width:800px) {
+            .bubble-text {
+                padding: 5px 10px;
             }
-            iframe {
-                width: 753px;
-                height: 425px;
-                margin: 0 40px;
-            }
-            section {
-                margin-bottom: 200px;
-            }
-            @media screen and (max-width:800px) {
-                .bubble-text{
-                    padding: 5px 10px; 
-                }
-            }
-            table {
-                border: var(--light-border);
-            }
-        </style>
-    </head>
-    <body>
-        <header class="top-navigation">
-            <nav role="navigation">
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html" aria-label="Home" title="Home"><i class="fa-solid fa-robot fa-xl" aria-hidden="true"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html#about" title="About">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../history/history.html" title="History">History</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="competitions.html" title="Competitions">Competitions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../parts/parts.html" title="Parts">Parts</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <h1 class="page-title">Sumo Robot Competitions</h1>
-            <figure class="hero" style="background-image: url('../images/sumorobot4.jpg');" role="img" aria-label="large sumo robots in a wood arena">
-                <figcaption aria-label="image attribution" class="hero-cite"><cite><a href="https://www.flickr.com/photos/veggiefrog/2326834483/">Veggiefrog</a>, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>, via flickr</cite></figcaption>
-            </figure>
-            <section>
-                <div class="info-block">
-                    <div class="bubble">
-                        <h2 style="padding-top: 30px; font-size: 2em;">National Robotics Challenge</h2>
-                        <p class="bubble-text" style="padding: 0 30px; font-size: 1.5em; line-height: 200%;">The National Robotics Challenge is a major robotics competition held in Marion, Ohio every spring. They have a wide range of sumo robot classes based on size and the age of the students who build them.</p>
-                        <a class="website" href="https://www.thenrc.org/" title="NRC Website" style="font-size: 1.1em;">NRC Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                    <iframe src="https://www.youtube-nocookie.com/embed/j9rk88IyM5A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        }
+
+        table {
+            border: var(--light-border);
+        }
+
+        #map {
+            height: 580px;
+            width: 80%;
+            margin: 30px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="top-navigation">
+        <nav>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html" aria-label="Home" title="Home"><i
+                            class="fa-solid fa-robot fa-xl" aria-hidden="true"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html#about" title="About">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../history/history.html" title="History">History</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="competitions.html" title="Competitions">Competitions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../build/build.html" title="Build Your Own">Build Your Own</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 class="page-title">Sumo Robot Competitions</h1>
+        <figure class="hero" style="background-image: url('../images/sumorobot4.jpg');"
+            aria-label="large sumo robots in a wood arena">
+            <figcaption class="hero-cite"><cite><a
+                        href="https://www.flickr.com/photos/veggiefrog/2326834483/">Veggiefrog</a>, <a
+                        href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>, via flickr</cite>
+            </figcaption>
+        </figure>
+        <section>
+            <div class="info-block">
+                <div class="bubble">
+                    <h2 style="padding-top: 30px; font-size: 2em;">National Robotics Challenge</h2>
+                    <p class="bubble-text" style="padding: 0 30px; font-size: 1.5em; line-height: 200%;">The National
+                        Robotics Challenge is a major robotics competition held in Marion, Ohio every spring. They have
+                        a wide range of sumo robot classes based on size and the age of the students who build them.</p>
+                    <a class="website" href="https://www.thenrc.org/" title="NRC Website" style="font-size: 1.1em;">NRC
+                        Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
-                <div class="info-block">
-                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/pa9SaSlktCg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <div class="bubble">
-                        <h2 style="padding-top: 30px; font-size: 2em;">Robochallenge</h2>
-                        <p class="bubble-text" style="padding: 30px 30px; padding-bottom: 0; font-size: 1.5em; line-height: 200%;">Robochallenge is an international robotics competition held in Romania. It is the biggest competition in Europe and it has events for 6 different classes of sumo robots.</p>
-                        <a class="website" href="http://www.robochallenge.ro/" title="Robochallenge Website" style="font-size: 1.1em;">Robochallenge Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
+                <iframe src="https://www.youtube-nocookie.com/embed/j9rk88IyM5A" title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="info-block">
+                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/pa9SaSlktCg"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                <div class="bubble">
+                    <h2 style="padding-top: 30px; font-size: 2em;">Robochallenge</h2>
+                    <p class="bubble-text"
+                        style="padding: 30px 30px; padding-bottom: 0; font-size: 1.5em; line-height: 200%;">
+                        Robochallenge is an international robotics competition held in Romania. It is the biggest
+                        competition in Europe and it has events for 6 different classes of sumo robots.</p>
+                    <a class="website" href="http://www.robochallenge.ro/" title="Robochallenge Website"
+                        style="font-size: 1.1em;">Robochallenge Website <i
+                            class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
-                <div class="info-block">
-                    <div class="bubble">
-                        <h2 style="padding-top: 30px; font-size: 2em;">FSI All Japan Robot-Sumo Tournament</h2>
-                        <p class="bubble-text" style="padding: 0 30px; font-size: 1.5em; line-height: 200%;">The FSI All Japan Robot-Sumo Tournament is the original sumo robot competition held in Tokyo, Japan every December.</p>
-                        <a class="website" href="https://www.fsi.co.jp/sumo/robot/en/index.html" title="AJRST Website" style="font-size: 1.1em;">AJRST Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/tdZ2hxFD3tA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="info-block">
+                <div class="bubble">
+                    <h2 style="padding-top: 30px; font-size: 2em;">FSI All Japan Robot-Sumo Tournament</h2>
+                    <p class="bubble-text" style="padding: 0 30px; font-size: 1.5em; line-height: 200%;">The FSI All
+                        Japan Robot-Sumo Tournament is the original sumo robot competition held in Tokyo, Japan every
+                        December.</p>
+                    <a class="website" href="https://www.fsi.co.jp/sumo/robot/en/index.html" title="AJRST Website"
+                        style="font-size: 1.1em;">AJRST Website <i
+                            class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
-            </section>
-            <section>
-                <h2>Competition Locations</h2>
-                
-            </section>
-        </main>
-        <footer>
-        </footer>
-    </body>
+                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/tdZ2hxFD3tA"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </div>
+        </section>
+        <section>
+            <h2
+                style="text-align: center; padding: 20px; background-color: rgb(243, 243, 243); width: 30%; margin: 30px auto; border-radius: 50px;">
+                Competition Locations</h2>
+            <div id="map"></div>
+        </section>
+    </main>
+    <footer>
+    </footer>
+    <script>
+        var map = L.map('map').setView({ lon: 0, lat: 0 }, 2);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+        }).addTo(map);
+        L.control.scale({ imperial: true, metric: true }).addTo(map);
+        if ('geolocation' in navigator) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                L.marker({ lon: position.coords.longitude, lat: position.coords.latitude }).bindPopup('Your Location').addTo(map);
+            });
+        }
+        L.marker({ lon: -83.12444401747769, lat: 40.604044258335165 }).bindPopup('National Robotics Challenge').addTo(map);
+        L.marker({ lon: 26.05058283132616, lat: 44.438855278244404 }).bindPopup('Robochallenge').addTo(map);
+        L.marker({ lon: 139.79325802137475, lat: 35.697060705943116 }).bindPopup('FSI All Japan Robot-Sumo Tournament').addTo(map); 
+    </script>
+</body>
+
 </html>

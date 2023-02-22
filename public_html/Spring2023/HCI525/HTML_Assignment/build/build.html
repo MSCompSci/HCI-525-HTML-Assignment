@@ -8,7 +8,7 @@
     <meta name="description" content="Learn all about sumo robots">
     <meta name="author" content="Molly Scott">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../../styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <script src="https://kit.fontawesome.com/b29d57ed18.js" crossorigin="anonymous"></script>
     <style>
@@ -37,6 +37,13 @@
             text-align: center;
         }
 
+        td a {
+            text-decoration: underline;
+        }
+        td a:hover {
+            color: darkgray;
+        }
+
         figure {
             margin: 40px;
             text-align: center;
@@ -60,6 +67,16 @@
 
         article {
             margin: 80px 0;
+        }
+        .learn-more{
+            background-color: white; 
+            border: solid 1px black; 
+            border-radius: 30px; 
+            padding: 10px; 
+            line-height: 300%;
+        }
+        .learn-more:hover {
+            background-color: lightgray;
         }
     </style>
 </head>
@@ -103,10 +120,8 @@
                 'scoop' to wedge under an opponent.
                 <br>Sumo robots are controlled by mircrocontrollers and use sensors to navigate because they are usually
                 not remote controlled.
-                <br><br>To learn more about how to build your own robot, read this guide by JSUMO.<br><br><a
-                    href="https://blog.jsumo.com/how-to-make-sumo-robot/"
-                    style="background-color: white; border: solid 1px black; border-radius: 30px; padding: 10px; line-height: 300%;">Learn
-                    More</a>
+                <br><br>To learn more about how to build your own robot, read this guide by JSUMO.<br><br><a class="learn-more"
+                    href="https://blog.jsumo.com/how-to-make-sumo-robot/">LearnMore</a>
             </p>
             <h2>Suggested Design Programs</h2>
             <figure>

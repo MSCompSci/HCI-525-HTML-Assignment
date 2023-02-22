@@ -8,7 +8,7 @@
     <meta name="description" content="Learn all about sumo robots">
     <meta name="author" content="Molly Scott">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../styles.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <script src="https://kit.fontawesome.com/b29d57ed18.js" crossorigin="anonymous"></script>
     <style>
@@ -27,10 +27,40 @@
             border: var(--light-border);
         }
 
+        .learn-more:hover {
+            background-color: lightgrey;
+        }
+
         @media screen and (max-width:800px) {
             .bubble-text {
                 padding: 5px 20px;
             }
+
+
+        }
+
+        @media screen and (max-width:700px) {
+            img {
+                max-width: 100vw;
+                height: auto;
+            }
+
+            .info-fig {
+                height: fit-content;
+            }
+
+            .info-fig figcaption {
+                font-size: .85em;
+            }
+
+        }
+
+        @media screen and (max-width: 500px) {
+            .bubble-text {
+                font-size: 5vw;
+            }
+
+
         }
     </style>
 </head>
@@ -71,7 +101,7 @@
             <div class="info-block">
                 <div class="bubble">
                     <h2 style="padding-top: 30px; font-size: 2em;">About</h2>
-                    <p style="padding: 0 30px; font-size: 1.5em; line-height: 200%;">Sumo robots are robots designed to
+                    <p class="bubble-text" style="padding: 0 30px; line-height: 200%;">Sumo robots are robots designed to
                         fight each other like sumo wrestlers. They compete in a ring and must attempt to push their
                         opponent out of bounds. They are usually autonomous and rely on infrared or ultrasonic sensors
                         to navigate.</p>

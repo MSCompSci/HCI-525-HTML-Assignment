@@ -1,20 +1,113 @@
 <!DOCTYPE html>
 <html lang="en-US">
-    <head>
-        <meta link rel="stylesheet" href="../styles.css">
-        <meta title="MScott23 - Spring 2023">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-        <main>
-            <h1 style="text-align: center;">Spring 2023</h1>
-            <h2 style="text-align: center;">Classes</h2>
-            <nav style="text-align: center;">
-                <a href="./HCI525/index.html">HCI 525</a>
-            </nav>
-        </main>
 
-    </body>
+<head>
+    <meta link rel="stylesheet" href="../styles.css">
+    <meta title="MScott23 - Spring 2023">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            background-image: url('../images/florian-olivo-4hbJ-eymZ1o-unsplash.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        main {
+            width: 80%;
+            background-color: white;
+            margin: 50px auto;
+            border-radius: 30px;
+        }
+
+        h1,
+        h2 {
+            padding-top: 50px;
+        }
+
+        nav {
+            padding-top: 30px;
+            padding-bottom: 50px;
+        }
+
+        nav a {
+            background-color: lightgrey;
+            padding: 20px;
+            border-radius: 30px;
+            color: black;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: darkgray;
+        }
+
+        .back a {
+            text-decoration: none;
+            color: black;
+            font-size: 1.2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            border: solid 1px black;
+            position: relative;
+            left: 50px;
+            top: 50px;
+            border-radius: 100%;
+            width: 30px;
+            height: 30px;
+        }
+
+        .back a:hover {
+            background-color: lightgray;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            background-color: white;
+            width: 100%;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            height: 50px;
+
+        }
+
+        footer cite {
+            margin-right: 30px;
+
+        }
+
+        footer cite a {
+            color: black;
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/b29d57ed18.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <main>
+        <div class="back"><a href="../index.html" title="Back"><i class="fa-solid fa-arrow-left"></i></a></div>
+        <h1 style="text-align: center;">Spring 2023</h1>
+        <h2 style="text-align: center;">Classes:</h2>
+        <nav style="text-align: center;">
+            <a href="./HCI525/index.html">HCI 525</a>
+        </nav>
+
+    </main>
+    <footer>
+        <cite>Photo by <a
+                href="https://unsplash.com/@florianolv?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Florian
+                Olivo</a> on <a
+                href="https://unsplash.com/photos/4hbJ-eymZ1o?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+            </a>
+        </cite>
+    </footer>
+
+</body>
 
 </html>
